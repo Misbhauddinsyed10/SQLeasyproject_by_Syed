@@ -1,0 +1,63 @@
+Syed_project_1
+
+
+
+use salmanproject;
+Create Table Consultancy (
+EmployeeID int primary key,
+FirstName varchar(100),
+LastName varchar(100),
+Title varchar(50),
+Department varchar(100),
+City varchar(100), 
+zipcode int, 
+Salary decimal(10,2) Not null  );
+insert into Consultancy (EmployeeID, FirstName, LastName, Title, Department, City, zipcode, Salary)
+values (1, 'Harry', 'Scott', 'Manager', 'Information technology', 'Baltimore', 21228, 60000.00),
+(2, 'Harris', 'Kamala', 'Employee', 'Sales', 'DC', 21991, 85000.00),
+(3, 'salman', 'syed', 'Associate', 'Operations', 'catonsville', 21227, 95000.00),
+(4, 'misbha', 'uddin', ' Team Lead', 'Finance', 'columbia', 21276, 100000.00),
+(5, 'Malik', 'Syed', 'Employee', 'Operations', 'DC', 20019, 25000.00),
+(6, 'Chris', 'Morris', 'Manager', 'Information technology', 'DC', 20798, 99000.00),
+(7, 'Paulo', 'Henry', 'Team Lead', 'Information technology', 'Fairfax', 30987, 105000.00),
+(8, 'Lucas', 'Moore', 'Employee', 'Sales', 'Reston', 25679, 85000.00),
+(9, 'Pablo', 'Hamper', 'Manager', 'Sales', 'Reston', 25679, 120000.00),
+(10, 'Kiara', 'Morris', 'Associate', 'Sales', 'Baltimore', 21228, 66000.00);
+use salmanproject;
+Select *from Consultancy;
+/*Write a query to select all unique department names from the employee table*/
+select distinct department from Consultancy;
+/*Write a query to select the top 5 highest-paid employees from the employee table*/
+select *from Consultancy
+Order by salary desc;
+/*Write a query to select the names of employees who work in the 'Sales' department and earn more than $50,000*/
+Select *from Consultancy
+Where Department='sales' and Salary >50000;
+/*Write a query to select all columns from the employee table for employees who earn less than $30,000 or more than $100,000*/
+select *from Consultancy
+where Salary <30000 or salary >100000;
+/*Write a query to calculate the total salary expense for all employees in the employee table*/
+Select sum(salary)
+from Consultancy;
+/*Write a query to calculate the average salary for each job title*/
+Select avg(salary)
+from Consultancy;
+/*Write a query to select all columns from the employee table for employees whose job title is either 'Manager' or 'Team Lead*/
+select *from Consultancy
+where title='manager' or 'Team Lead';
+/*Write a query to select the department names where the average salary is greater than $60,000*/
+select department from Consultancy 
+group by department
+having avg (salary) >60000;
+select *from consultancy
+where city = 'baltimore' or city = 'fairfax'; 
+select *from consultancy
+where city in ('fairfax','DC') and not city='baltimore';
+
+
+
+
+
+
+
+
